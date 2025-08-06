@@ -68,7 +68,8 @@
 
   .input-container {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     margin-left: 2rem;
 
@@ -184,6 +185,8 @@
     color: #fff;
     flex-wrap: wrap;
     height: 4rem;
+    width: 100%;
+    height: 100%;
   }
 
   .logo-footer {
@@ -213,6 +216,13 @@
     flex-direction: column;
   }
 
+  iframe {
+    border-radius: 15px;
+    border: solid 1px gray;
+    box-shadow: 12px 12px 2px 1px rgba(141, 141, 141, 0.2);
+    margin-bottom: 2rem;
+  }
+
   @media (max-width: 500px) {
     .header-container > .options-container ul {
       gap: 1rem;
@@ -238,8 +248,8 @@
     }
 
     .lancamento > iframe {
-      width: 400px;
-      height: 350px;
+      width: 300px;
+      height: 270px;
     }
 
     .contato-container > .contato-wrapper {
@@ -249,4 +259,70 @@
     .contato-container {
       padding: 0;
     }
+
+    footer {
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: center;
+      padding-top: 1rem;
+      text-align: center;
+      gap: 1rem;
+    }
+    .redes-sociais {
+      justify-content: space-around;
+      width: 100%;
+      margin-left: 0;
+    }
+
+    .img-header {
+      width: 6rem;
+    }
   }
+
+  @media (max-width: 500px) {
+    .checkbox-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+  
+    .checkbox-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%; /* Se tiver 3 slides */
+      transition: transform 0.4s ease-in-out;
+    }
+  
+    .checkbox-wrapper > div {
+      min-width: 100%;
+      box-sizing: border-box;
+      padding: 10px;
+      width: 100%;
+      flex-shrink: 0;
+    }
+  
+    .carousel-btn {
+      position: absolute;
+      top: 40%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border: none;
+      padding: 10px;
+      font-size: 20px;
+      z-index: 10;
+      cursor: pointer;
+    }
+  
+    .carousel-btn.prev {
+      left: 10px;
+    }
+  
+    .carousel-btn.next {
+      right: 10px;
+    }
+  }
+
+  

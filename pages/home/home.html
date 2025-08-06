@@ -11,7 +11,7 @@
       <!-- Header -->
       <header class="header-container">
         <div class="logo-container">
-          <img src="../../assets/images/logo-ford.png" alt="logo da ford" />
+          <img src="../../assets/images/logo-ford.png" alt="logo da ford" class="img-header"/>
         </div>
         <div class="options-container">
           <ul>
@@ -70,7 +70,7 @@
 
                 <div>
                   <div class="car-container">
-                    <img src="../../assets/images/xlCabine.jpg" alt="" />
+                    <img src="../../assets/images/xlsDisel.jpg" alt="" />
                   </div>
                   <div class="input-container">
                     <input type="checkbox" />
@@ -88,7 +88,7 @@
                 </div>
                 <div>
                   <div class="car-container">
-                    <img src="../../assets/images/xlCabine.jpg" alt="" />
+                    <img src="../../assets/images/storm.jpg" alt="" />
                   </div>
 
                   <div class="input-container">
@@ -150,6 +150,10 @@
             <img src="../../assets/images/instagram.png" alt="Instagram" />
           </figure>
         </div>
+
+        <div>
+          <p>&copy; 2025 Ford Motor Company todos os direitos reservados.</p>
+        </div>
         <div class="logo-footer">
           <img src="../../assets/images/ford-footer.png" alt="Logo Ford" />
         </div>
@@ -181,4 +185,46 @@
   });
 
   changeComponent("home");
+
+  // Funçao carrossel
+
+  let currentIndex = 0;
+  let slideInterval;
+
+  function moveSlide(direction) {
+    const wrapper = document.querySelector('.checkbox-wrapper');
+    const items = wrapper.children;
+    const total = items.length;
+
+    currentIndex += direction;
+
+    if (currentIndex < 0) currentIndex = total - 1;
+    if (currentIndex >= total) currentIndex = 0;
+
+    wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  function autoPlay() {
+    slideInterval = setInterval(() => moveSlide(1), 4000);
+  }
+
+  function setupCarousel() {
+    if (window.innerWidth <= 500) {
+      autoPlay();
+    }
+  }
+
+  // Reaplica se redimensionar
+  window.addEventListener('resize', () => {
+    if (window.innerWidth <= 500 && !slideInterval) {
+      autoPlay();
+    } else if (window.innerWidth > 500 && slideInterval) {
+      clearInterval(slideInterval);
+      slideInterval = null;
+      document.querySelector('.checkbox-wrapper').style.transform = 'translateX(0)';
+    }
+  });
+
+  window.addEventListener('load', setupCarousel);
+
 </script>
