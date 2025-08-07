@@ -178,7 +178,7 @@
   }
   footer {
     display: flex;
-    width: 100%;
+    width: 100vw;
     align-items: center;
     justify-content: space-between;
     background-color: #1b357e;
@@ -325,4 +325,30 @@
     }
   }
 
-  
+  @media (max-width: 768px ) {
+    .header-container {
+      justify-content: right;
+    }
+
+    .header-container > .options-container {
+      margin-right: 2rem;
+    }
+
+    footer {
+      width: 100vw;
+      display: grid;
+      grid-template-columns: 2fr 2fr 1fr;
+      justify-content: space-between;
+      text-align: center;
+    }
+
+    iframe {
+      width: 600px;
+      height: 400px;
+    }
+
+    .contato-container > .contato-wrapper {
+      flex-direction: column;
+    }
+    
+  }
