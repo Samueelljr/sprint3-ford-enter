@@ -227,4 +227,15 @@
 
   window.addEventListener('load', setupCarousel);
 
+  if (window.innerWidth <= 768 && window.innerWidth >= 501) {
+  const responsiveCars = document.querySelectorAll(".checkbox-wrapper");
+
+  responsiveCars.forEach((element) => {
+    element.style.flexDirection = "column";
+    element.style.alignItems = "center";
+    element.style.justifyContent = "center";
+    element.style.transform = "none"
+  });
+}
+
 </script>
